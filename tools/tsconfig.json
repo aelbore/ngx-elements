@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "lib" :[
+      "dom",
+      "es2015",
+      "es2017"
+    ]
+  },
+  "exclude": [
+    "examples",
+    "tests"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "ngx-elements",
+  "version": "0.0.1",
+  "description": "Wrap and register your Angular Ivy Component as custom element",
+  "main": "index.js",
+  "scripts": {
+    "build": "ts-node tools/build",
+    "link.lib": "ts-node --project tools/tsconfig.json tools/link.lib.ts",
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aelbore/ngx-elements.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aelbore/ngx-elements/issues"
+  },
+  "homepage": "https://github.com/aelbore/ngx-elements#readme",
+  "peerDependencies": {
+    "@angular/core": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@angular/core": "^8.1.1",
+    "@types/chai": "^4.1.7",
+    "@types/karma": "^3.0.3",
+    "@types/mocha": "^5.2.7",
+    "aria-build": "0.0.7",
+    "chai": "^4.2.0",
+    "karma": "^4.2.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^3.0.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-typescript": "^4.1.1",
+    "mocha": "^6.1.4",
+    "rxjs": "^6.5.2",
+    "typescript": "^3.5.3",
+    "zone.js": "^0.9.1"
+  }
+}
