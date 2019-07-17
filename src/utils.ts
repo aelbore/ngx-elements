@@ -4,14 +4,31 @@ export interface KeyValue {
   [key: string ]: any
 }
 
+export function autoChangeDetection<T>(component: T, inputs: KeyValue, props: Map<string, string>) {
+  const keys = Object.keys(inputs)
+  keys.forEach(key => {
+    props.set(key, component[key])
+    Object.defineProperty(component, key, {
+      get() {
+        return props.get(key)
+      },
+      set(value) {
+        props.set(key, value)
+        detectChanges(component)
+      }
+    })
+  })
+}
+
 export function initProps<T>(target: HTMLElement | any, inputs: KeyValue, component: T) {
   const keys = Object.keys(inputs)
   keys.forEach(key => {
     Object.defineProperty(target, key, {
-      get() { component[key]; },
+      get() { 
+        return component[key]; 
+      },
       set(value) {
         component[key] = value;
-        detectChanges(component);
       }
     })
   })

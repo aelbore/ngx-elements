@@ -16,7 +16,9 @@ export default function karmaConfig(config) {
     browsers: ['ChromeHeadlessNoSandbox'],
 
     karmaTypescriptConfig: {
-      include: [ "src/**/*" ],
+      include: [ 
+        "src/**/*"
+      ],
       bundlerOptions: {
         entrypoints: /\.spec\.ts$/
       },
@@ -26,6 +28,7 @@ export default function karmaConfig(config) {
         experimentalDecorators: true,
         module: "commonjs",
         moduleResolution: "node",
+        allowJs: true,
         target: "es2015",
         lib :[
           "dom",
