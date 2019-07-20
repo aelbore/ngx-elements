@@ -3,7 +3,8 @@ import { bundle, clean, TSRollupConfig } from 'aria-build'
 (async function(){
 
   const external = [
-    '@angular/core'
+    '@angular/core',
+    '@angular/common'
   ]
 
   const options: TSRollupConfig[] = [

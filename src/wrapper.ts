@@ -1,39 +1,33 @@
-import { ɵrenderComponent as renderComponent, ViewEncapsulation, Type, Injector } from "@angular/core";
-import { initEvents, initProps, autoChangeDetection } from './utils'
+import { ɵrenderComponent as renderComponent, ViewEncapsulation, Type, Injector, ɵComponentDef } from '@angular/core';
+import { initEvents, initProps, autoChangeDetection, updateComponentDef } from './utils'
 
 declare const HTMLElement: any;
 
 export function renderNgComponent<T>(componentType: Type<T>, opts?: any) {
   const props = new Map()
+  const def = updateComponentDef(componentType)
+
   const component = renderComponent(componentType, opts)
-    /// @ts-ignore
-  autoChangeDetection(component, componentType.ngComponentDef.inputs, props)
+  return autoChangeDetection(component, def.inputs, props)
 }
 
-export function renderCustomElement<T>(componentType: Type<T>, injector?: Injector) {
-  /// @ts-ignore
-  const { inputs, styles, encapsulation, outputs, selectors, onPush } = componentType.ngComponentDef
+export function createCustomElement<T>(componentType: Type<T>, injector?: Injector) {
+  const { inputs, styles, encapsulation, outputs } = componentType['ngComponentDef'] as ɵComponentDef<T>
 
-  class CustomElement extends HTMLElement {
-    private rootElement: HTMLElement | ShadowRoot;
-    private component: T
-    
-    private props = new Map()
+  return class CustomElement extends HTMLElement {
+    rootElement: HTMLElement | ShadowRoot;
+    component: T
 
     constructor() {
       super();
       
       this.rootElement = (encapsulation === ViewEncapsulation.ShadowDom)
-         ? this.attachShadow({ mode: "open" }) : this;
+          ? this.attachShadow({ mode: "open" }) : this;
 
-      this.component = renderComponent(componentType, { 
+      this.component = renderNgComponent(componentType, { 
         host: this.rootElement as any,  
         ...(injector ? { injector }: {})
       });
-
-      if (!onPush) {
-        autoChangeDetection(this.component, inputs, this.props)
-      }
 
       initProps(this, inputs, this.component)
       initEvents(this, outputs, this.component)
@@ -60,6 +54,11 @@ export function renderCustomElement<T>(componentType: Type<T>, injector?: Inject
     }
   }
 
-  customElements.define(selectors[0][0], CustomElement)
+}
 
+export function renderCustomElement<T>(componentType: Type<T>, injector?: Injector) {
+  customElements.define(
+    componentType['ngComponentDef'].selectors[0][0], 
+    createCustomElement(componentType, injector)
+  )
 }
