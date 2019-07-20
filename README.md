@@ -1,3 +1,6 @@
+[![npm version](https://badge.fury.io/js/ngx-elements.svg)](https://www.npmjs.com/package/ngx-elements)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 # ngx-elements
 Wrap and register your Angular Ivy Component as custom element
 
