@@ -10,6 +10,14 @@ export interface KeyValue {
   [key: string ]: any
 }
 
+export function addStyle(cssStyles, host) {
+  if (cssStyles) {
+    const style = document.createElement('style')
+    style.textContent = cssStyles
+    host.prepend(style)
+  }   
+}
+
 export function autoChangeDetection<T>(component: T, inputs: KeyValue, props: Map<string, string>) {
   const keys = Object.keys(inputs)
   keys.forEach(key => {

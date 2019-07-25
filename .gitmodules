@@ -1,3 +1,6 @@
 [submodule "demo/ngx-elements"]
 	path = demo/ngx-elements
 	url = https://github.com/aelbore/ngx-elements-demo.git
+[submodule "demo/ngx-elements-cli"]
+	path = demo/ngx-elements-cli
+	url = https://github.com/aelbore/ngx-elements-cli-demo.git

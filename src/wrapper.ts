@@ -1,5 +1,5 @@
 import { ɵrenderComponent as renderComponent, ViewEncapsulation, Type, Injector, ɵComponentDef } from '@angular/core';
-import { initEvents, initProps, autoChangeDetection, updateComponentDef } from './utils'
+import { initEvents, initProps, autoChangeDetection, updateComponentDef, addStyle } from './utils'
 
 declare const HTMLElement: any;
 
@@ -8,11 +8,18 @@ export function renderNgComponent<T>(componentType: Type<T>, opts?: any) {
   const def = updateComponentDef(componentType)
 
   const component = renderComponent(componentType, opts)
+  const host = (opts && opts.host) 
+    ? opts.host
+    : document.querySelector(def.selectors[0][0].toString())
+
+  const cssStyles = def.styles.join('\n')
+  addStyle(cssStyles, host)
+
   return autoChangeDetection(component, def.inputs, props)
 }
 
 export function createCustomElement<T>(componentType: Type<T>, injector?: Injector) {
-  const { inputs, styles, encapsulation, outputs } = componentType['ngComponentDef'] as ɵComponentDef<T>
+  const { inputs, encapsulation, outputs } = componentType['ngComponentDef'] as ɵComponentDef<T>
 
   return class CustomElement extends HTMLElement {
     rootElement: HTMLElement | ShadowRoot;
@@ -44,14 +51,6 @@ export function createCustomElement<T>(componentType: Type<T>, injector?: Inject
       }      
     }
 
-    connectedCallback() {
-      const cssStyles = styles.join('\n')
-      if (cssStyles) {
-        const style = document.createElement('style')
-        style.textContent = cssStyles
-        this.rootElement.prepend(style)
-      }      
-    }
   }
 
 }

@@ -5,7 +5,7 @@ import { execSync } from 'child_process'
 import { clean, mkdirp, globFiles, copyFile } from 'aria-build'
 
 (async function() {
-  const NODE_MODULES_PATH = path.resolve(path.join('demo', 'ngx-elements', 'node_modules'))
+  const NODE_MODULES_PATH = path.resolve(path.join('demo', 'ngx-elements-cli', 'node_modules'))
   if (fs.existsSync(NODE_MODULES_PATH)) {
     const NGX_ELEMENTS_PATH = path.join(NODE_MODULES_PATH, 'ngx-elements')
     const LIB_SOURCE = path.join('dist', '**/*')
@@ -22,11 +22,7 @@ import { clean, mkdirp, globFiles, copyFile } from 'aria-build'
     }))
   }
 
-  await Promise.all([ 
-    clean('./demo/ngx-elements/.tmp'), 
-    clean('./demo/ngx-elements/dist') 
-  ])
-
-  execSync('npm run ngc --prefix ./demo/ngx-elements')
-  execSync('npm run build --prefix ./demo/ngx-elements')
+  await clean('./demo/ngx-elements-cli/dist')
+  
+  execSync('npm run build --prefix ./demo/ngx-elements-cli')
 })()
