@@ -3,7 +3,7 @@ import {
   ɵPipeDef as PipeDef,
   ɵDirectiveDef as DirectiveDef,
   ɵdetectChanges as detectChanges,
-  ɵComponentDef as ComponentDef, 
+  ɵComponentDef as ComponentDef
 } from "@angular/core";
 
 export interface KeyValue {
@@ -55,8 +55,8 @@ export function getDirectiveDef<T>(t: Type<T>): DirectiveDef<T> {
     return t['ngDirectiveDef'] as DirectiveDef<T>;
   }
 
-  if (t['ngComponentDef']) {
-    return t['ngComponentDef'] as ComponentDef<T>;
+  if (t['ɵcmp']) {
+    return t['ɵcmp'] as ComponentDef<T>;
   }
 
   throw new Error('No Angular definition found for ' + t.name);
@@ -71,7 +71,7 @@ export function getPipeDef<T>(t: Type<T>): PipeDef<T> {
 }
 
 export function updateComponentDef<T>(componentType: Type<T>) {
-  const def: ComponentDef<T> = componentType['ngComponentDef'] as ComponentDef<T>
+  const def: ComponentDef<T> = componentType['ɵcmp'] as ComponentDef<T>
 
   const directives = (componentType['deps'] && componentType['deps']['directives'])
     ? componentType['deps']['directives']: null
@@ -80,7 +80,7 @@ export function updateComponentDef<T>(componentType: Type<T>) {
     ? componentType['deps']['pipes']: null
 
   def.directiveDefs = (directives) 
-    ? directives.map(directive => getDirectiveDef(directive))
+    ? directives.map(directive => (directive as DirectiveDef<T>))
     : null
 
   def.pipeDefs = (pipes)

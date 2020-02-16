@@ -12,7 +12,7 @@ export function renderNgComponent<T>(componentType: Type<T>, opts?: any) {
 }
 
 export function createCustomElement<T>(componentType: Type<T>, injector?: Injector) {
-  const { inputs, styles, encapsulation, outputs } = componentType['ngComponentDef'] as ɵComponentDef<T>
+  const { inputs, styles, encapsulation, outputs } = componentType['ɵcmp'] as ɵComponentDef<T>
 
   return class CustomElement extends HTMLElement {
     rootElement: HTMLElement | ShadowRoot;
@@ -58,7 +58,7 @@ export function createCustomElement<T>(componentType: Type<T>, injector?: Inject
 
 export function renderCustomElement<T>(componentType: Type<T>, injector?: Injector) {
   customElements.define(
-    componentType['ngComponentDef'].selectors[0][0], 
+    componentType['ɵcmp'].selectors[0][0], 
     createCustomElement(componentType, injector)
   )
 }
