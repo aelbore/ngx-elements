@@ -1,8 +1,6 @@
 import { ɵrenderComponent as renderComponent, ViewEncapsulation, Type, Injector, ɵComponentDef } from '@angular/core';
 import { initEvents, initProps, autoChangeDetection, updateComponentDef } from './utils'
 
-declare const HTMLElement: any;
-
 export function renderNgComponent<T>(componentType: Type<T>, opts?: any) {
   const props = new Map()
   const def = updateComponentDef(componentType)
@@ -59,6 +57,6 @@ export function createCustomElement<T>(componentType: Type<T>, injector?: Inject
 export function renderCustomElement<T>(componentType: Type<T>, injector?: Injector) {
   customElements.define(
     componentType['ɵcmp'].selectors[0][0], 
-    createCustomElement(componentType, injector)
+    createCustomElement(componentType, injector) 
   )
 }

@@ -1,42 +1,44 @@
 {
   "name": "ngx-elements",
   "version": "0.0.2",
+  "main": "ngx-elements.js",
   "description": "Wrap and register your Angular Ivy Component as custom element",
   "scripts": {
-    "postinstall": "npm run build",
-    "copy": "ts-node ./tools/copy.ts",
     "build": "aria-build -f es -d --external @angular/core"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aelbore/ngx-elements.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "angular",
+    "webcomponents",
+    "custom-elements",
+    "platform"
+  ],
+  "author": "Arjay Elbore",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/aelbore/ngx-elements/issues"
   },
   "homepage": "https://github.com/aelbore/ngx-elements#readme",
   "peerDependencies": {
-    "@angular/core": ">=8.0.0"
+    "@angular/core": ">=9.1.9"
   },
   "devDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0",
-    "@types/chai": "^4.2.8",
-    "@types/express": "^4.17.2",
-    "@types/mocha": "^7.0.1",
-    "aria-build": "^0.1.0",
-    "aria-fs": "^0.1.0",
-    "aria-mocha": "^0.1.0",
-    "aria-mocha-headless": "0.1.0",
+    "@types/chai": "^4.2.11",
+    "@types/express": "^4.17.6",
+    "@types/mocha": "^7.0.2",
+    "@angular-devkit/build-optimizer": "0.901.7",
+    "@angular/compiler": "9.1.9",
+    "@angular/compiler-cli": "9.1.9",
+    "@angular/common": "^9.1.9",
+    "@angular/core": "^9.1.9",
+    "aria-build": "^0.4.0",
+    "aria-fs": "^0.4.0",
     "express": "^4.17.1",
-    "rxjs": "^6.5.4",
-    "typescript": "^3.7.4",
-    "zone.js": "^0.10.2"
-  },
-  "main": "ngx-elements.js",
-  "module": "ngx-elements.js",
-  "typings": "ngx-elements.d.ts"
+    "rollup-plugin-filesize": "^9.0.0",
+    "rxjs": "^6.5.5",
+    "typescript": "^3.9.3"
+  }
 }
