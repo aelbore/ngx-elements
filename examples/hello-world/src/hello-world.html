@@ -1,0 +1,7 @@
+<h1>
+  Hello World <span>I'm {{ name }}</span>
+</h1>
+<input 
+  [value]="name" 
+  (input)="updateName($event.target.value)" 
+/>

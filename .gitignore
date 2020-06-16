@@ -4,3 +4,6 @@ dist
 temp
 .DS_Store
 coverage
+public/counter
+public/profile
+public/hello-world
