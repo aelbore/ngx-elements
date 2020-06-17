@@ -1,0 +1,14 @@
+<div class="ar-form-group ar-material-inputs">
+  <input 
+    type="text" 
+    [value]="value"
+    [disabled]="disabled" class="ar-form-control" 
+    (blur)="inputBlur($event)"
+    (focus)="inputFocus($event)"
+    (keyup)="inputChange($event)"
+  />
+  <label class="{{ value ? 'active': '' }}">{{ placeholder }}</label>
+  <span class="ar-input-group-addon">
+    <em></em>
+  </span>
+</div>

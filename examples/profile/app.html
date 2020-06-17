@@ -1,8 +1,5 @@
 <div id="app">
-  <div style="text-align:center;margin-bottom:20px;">
-    <h1>Welcome to Angular</h1>
-    <img width="200" src="https://angular.io/assets/images/logos/angular/angular.svg" />
-  </div>
+  <ar-input (change)="change($event)" placeholder="Select"></ar-input>
   <div class="cards">
     <ar-card *ngFor="let profile of profiles" [profile]="profile"></ar-card>
   </div>

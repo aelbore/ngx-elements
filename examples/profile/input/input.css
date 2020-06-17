@@ -1,0 +1,59 @@
+:host .ar-form-group.ar-material-inputs {
+  display: block;
+  position: relative;
+  padding: 18px 0 24px 0;
+}
+:host .ar-form-group.ar-material-inputs .ar-form-control {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 34px;
+  padding: 2px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dde6e9;
+  border-radius: 0;
+  box-shadow: none;
+}
+:host .ar-form-group.ar-material-inputs .ar-form-control:focus {
+  outline: none;
+  padding-bottom: 1px;
+  border-color: #0075b0;
+  border-bottom-width: 2px;
+}
+:host .ar-form-group.ar-material-inputs .ar-form-control:focus ~ label {
+  color: #0075b0;
+}
+:host .ar-form-group.ar-material-inputs .ar-form-control ~ label {
+  color: #9e9e9e;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1em;
+  transition: transform 0.2s ease-out, color 0.2s ease-out, -webkit-transform 0.2s ease-out;
+  transform-origin: 0% 100%;
+  transform: translateY(24px);
+}
+:host .ar-form-group.ar-material-inputs .ar-form-control[disabled] {
+  color: rgba(0, 0, 0, 0.42);
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.42);
+}
+:host .ar-form-group.ar-material-inputs .ar-form-control:focus ~ label, :host .ar-form-group.ar-material-inputs .ar-form-control ~ label.active, :host .ar-form-group.ar-material-inputs .ar-form-control[disabled] ~ label {
+  transform: translateY(5px) scale(0.8);
+  transform-origin: 0 0;
+}
+:host .ar-form-group.ar-material-inputs.ar-input-group {
+  position: relative;
+}
+:host .ar-form-group.ar-material-inputs.ar-input-group > .ar-form-control {
+  padding: 2px 2px 2px 36px;
+}
+:host .ar-form-group.ar-material-inputs.ar-input-group > .ar-input-group-addon {
+  position: absolute;
+  top: 20px;
+  left: 2px;
+}
+:host .ar-form-group.ar-material-inputs.ar-input-group > label {
+  margin-left: 36px;
+}
