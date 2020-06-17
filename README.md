@@ -61,7 +61,7 @@ Usage
 
     }
 
-    renderCustomElement(HelloNameComponent)
+    renderCustomElement(HelloWorldComponent)
     ```
 
 
