@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, OnInit, ɵdetectChanges as detectChanges } from '@angular/core'
-import { NgForOf } from '@angular/common'
+import { NgForOf, AsyncPipe } from '@angular/common'
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
-import { of } from 'rxjs'
+import { of, Observable } from 'rxjs'
 
 import { renderCustomElement } from 'ngx-elements'
 
@@ -16,7 +16,7 @@ import { InputComponent, InputEvent } from './input/input'
 })
 export class App implements OnInit { 
 
-  profiles: Profile[]
+  profiles: Observable<Profile[]>
 
   values: Profile[] = [
     {
@@ -46,16 +46,16 @@ export class App implements OnInit {
   ]
 
   ngOnInit() {
-    this.profiles = [ ...this.values ]
+    this.profiles = of(this.values)
   }
 
   change(e: InputEvent) {
     of(e.detail.value.toLowerCase())
     .pipe(debounceTime(700), distinctUntilChanged())
     .subscribe(text => {
-      this.profiles = [
+      this.profiles = of([
         ...this.values.filter(value => value.name.toLowerCase().includes(text))
-      ]
+      ])
       detectChanges(this)
     })
   }
@@ -63,5 +63,6 @@ export class App implements OnInit {
 }
 
 renderCustomElement(App, { 
-  directives: [ NgForOf, InputComponent, Card ] 
+  directives: [ NgForOf, InputComponent, Card ],
+  pipes: [ AsyncPipe ]
 })

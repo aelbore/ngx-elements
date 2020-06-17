@@ -1,6 +1,6 @@
 <div id="app">
   <ar-input (change)="change($event)" placeholder="Select"></ar-input>
   <div class="cards">
-    <ar-card *ngFor="let profile of profiles" [profile]="profile"></ar-card>
+    <ar-card *ngFor="let profile of profiles | async" [profile]="profile"></ar-card>
   </div>
 </div>
