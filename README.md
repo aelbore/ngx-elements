@@ -24,7 +24,7 @@ Example
 * `npm run ngcc` - compile all `@angular/*` libraries into ivy compatible
 * `npm run build` - build `ngx-elements`
 * `npm run build:profile` - build the example code
-* `npm run serve` - run into browser `http://localhost:5000/hello-world`
+* `npm run serve` - run into browser `http://localhost:5000`
 
 API
 -----
