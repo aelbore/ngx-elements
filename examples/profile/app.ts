@@ -6,14 +6,14 @@ import { of, Observable } from 'rxjs'
 import { renderCustomElement } from 'ngx-elements'
 
 import { Card, Profile } from './card/card'
-import { InputComponent, InputEvent } from './input/input'
+import { InputComponent } from './input/input'
 import { AppService } from './app.service'
 
 @Component({
   selector: 'ar-profile',
   template: `
     <div id="app">
-      <ar-input (change)="change($event)" placeholder="Select"></ar-input>
+      <ar-input (change)="change($event.detail.value)"></ar-input>
       <div class="cards">
         <ar-card 
           *ngFor="let profile of profiles | async" 
@@ -35,8 +35,8 @@ export class App implements OnInit {
     this.profiles = this.service.getProfiles()
   }
 
-  change(e: InputEvent) {
-    of(e.detail.value)
+  change(name: string) {
+    of(name)
       .pipe(debounceTime(700), distinctUntilChanged())
       .subscribe(text => {
         this.profiles = this.service.getProfilesByName(text)

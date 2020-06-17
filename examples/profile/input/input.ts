@@ -6,12 +6,6 @@ import {
   ViewEncapsulation
 } from '@angular/core'
 
-export interface InputEvent extends Event {
-  detail: { 
-    value: string 
-  }
-}
-
 @Component({
   selector: 'ar-input',
   templateUrl: './input.html',
