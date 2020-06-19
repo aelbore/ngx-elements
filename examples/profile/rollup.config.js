@@ -5,6 +5,9 @@ import { terser } from 'rollup-plugin-terser'
 
 export default {
   input: './examples/profile/app.ts',
+  manualChunks(id) {
+    if (id.includes('node_modules')) return 'vendor'
+  },
   plugins: [
     ngcPlugin({
       rootDir: './example/profile'
@@ -29,7 +32,7 @@ export default {
   ],
   output: {
     format: 'es',
-    file: './public/profile/app.js',
+    dir: './public/profile',
     sourcemap: true
   }
 }

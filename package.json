@@ -31,17 +31,17 @@
     "@angular/core": ">=9.1.11"
   },
   "devDependencies": {
-    "@angular-devkit/build-optimizer": "0.901.8",
+    "@angular-devkit/build-optimizer": "0.901.9",
     "@angular/common": "^9.1.11",
     "@angular/compiler": "9.1.11",
     "@angular/compiler-cli": "9.1.11",
     "@angular/core": "^9.1.11",
-    "aria-build": "^0.4.3",
-    "aria-fs": "^0.4.3",
+    "aria-build": "^0.4.5",
+    "aria-fs": "^0.4.5",
     "rollup-plugin-filesize": "^9.0.1",
     "rollup-plugin-ngc": "^0.1.1",
     "rxjs": "^6.5.5",
-    "sirv-cli": "^1.0.0",
+    "sirv-cli": "^1.0.1",
     "tslib": "^2.0.0",
     "typescript": "3.8.3"
   }
