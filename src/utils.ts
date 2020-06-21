@@ -1,51 +1,22 @@
-import { Type, ɵdetectChanges as detectChanges, Injector } from '@angular/core'
+import { NgxElement } from './element'
 
-export interface ComponentOptions { 
-  host?: any
-  injector?: Injector
-  directives?: Type<any>[]
-  pipes?: Type<any>[]
-}
-
-export interface KeyValue {
-  [key: string ]: any
-}
-
-export function autoChangeDetection<T>(component: T, inputs: KeyValue, props: Map<string, string>) {
-  const keys = Object.keys(inputs)
-  keys.forEach(key => {
-    props.set(key, component[key])
-    Object.defineProperty(component, key, {
-      get() {
-        return props.get(key)
-      },
-      set(value) {
-        props.set(key, value)
-        detectChanges(component)
-      }
-    })
-  })
-  return component
-}
-
-export function initProps<T>(target: HTMLElement | any, inputs: KeyValue, component: T) {
-  const keys = Object.keys(inputs)
-  keys.forEach(key => {
+export function initProps<T>(target: NgxElement<T>) {
+  target.schema.attrs.forEach(key => {
     Object.defineProperty(target, key, {
       get() { 
-        return component[key]; 
+        return target.component[key] 
       },
       set(value) {
-        component[key] = value;
+        target.component[key] = value
       }
     })
   })
 }
 
-export function initEvents<T>(target: HTMLElement | any, outputs: KeyValue, component: T) {
-  const outputEvents = Object.keys(outputs)
-  outputEvents.forEach(outputEvent => {
-    component[outputs[outputEvent]].subscribe(info => {
+export function initEvents<T>(target: NgxElement<T>) {
+  const schema = target.schema
+  schema.events.forEach(outputEvent => {
+    target.component[schema.outputs[outputEvent]].subscribe(info => {
       target.dispatchEvent(new CustomEvent(outputEvent, { detail: info }))
     })
   })
