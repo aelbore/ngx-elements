@@ -1,6 +1,6 @@
 {
   "name": "ngx-elements",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "ngx-elements.js",
   "description": "Wrap and register your Angular Ivy Component as custom element",
   "scripts": {
