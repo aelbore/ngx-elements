@@ -7,9 +7,8 @@ import { renderCustomElement } from 'ngx-elements'
   styleUrls: [ './hello-world.css' ],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class HelloWorld {
-
-  @Input() name: string = ''
+export class HelloWorld  {
+  @Input() name: string
 
   updateName(newName: string) {
     this.name = newName

@@ -7,9 +7,15 @@ import { copyFile, mkdir } from 'aria-build'
 
 export default {
   input: './examples/hello-world/src/hello-world.ts',
+  manualChunks(id) {
+    if (id.includes('node_modules')) {
+      return 'vendor';
+    }
+  },
   plugins: [
     ngcPlugin({
-      rootDir: './example/hello-world'
+      rootDir: './example/hello-world',
+      target: 'es2020'
     }),
     resolve(),
     terser({

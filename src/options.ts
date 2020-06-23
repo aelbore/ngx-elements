@@ -5,6 +5,7 @@ export interface ComponentOptions {
   injector?: Injector
   directives?: Type<any>[]
   pipes?: Type<any>[]
+  changeDetection?: boolean
 }
 
 export interface KeyValue {

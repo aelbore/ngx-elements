@@ -5,6 +5,7 @@
   "description": "Wrap and register your Angular Ivy Component as custom element",
   "scripts": {
     "ngcc": "ngcc",
+    "test": "ts-node --project ./tools/tsconfig.json index.ts",
     "build:counter": "rollup -c ./examples/counter/rollup.config.js",
     "build:profile": "rollup -c ./examples/profile/rollup.config.js",
     "build:hello:world": "rollup -c ./examples/hello-world/rollup.config.js",
@@ -21,7 +22,7 @@
     "custom-elements",
     "platform"
   ],
-  "author": "Arjay Elbore",
+  "author": "Arjay Elbore <aelbore.sg@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/aelbore/ngx-elements/issues"
@@ -36,8 +37,10 @@
     "@angular/compiler": "9.1.11",
     "@angular/compiler-cli": "9.1.11",
     "@angular/core": "^9.1.11",
+    "@types/mock-fs": "^4.10.0",
     "aria-build": "^0.4.5",
     "aria-fs": "^0.4.5",
+    "mock-fs": "^4.12.0",
     "rollup-plugin-filesize": "^9.0.1",
     "rollup-plugin-ngc": "^0.1.1",
     "rxjs": "^6.5.5",
