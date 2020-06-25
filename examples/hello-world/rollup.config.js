@@ -47,7 +47,7 @@ export default {
   ],
   output: {
     format: 'es',
-    file: './public/hello-world/hello-world.js',
+    dir: './public/hello-world',
     sourcemap: true
   }
 }
