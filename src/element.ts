@@ -1,4 +1,4 @@
-import { Type, ɵComponentDef, ViewEncapsulation } from '@angular/core'
+import { Type, ɵComponentDef, ViewEncapsulation, ɵrenderComponent } from '@angular/core'
 
 import { SchemaResult, schema } from './schema'
 import { ComponentOptions } from './options'
@@ -26,6 +26,24 @@ export class NgxElement<T> extends HTMLElement  {
     if (this.schema.attrs.includes(name)) {
       this[name] = newValue
     }      
+  }
+
+}
+
+export class NgElement<T> extends HTMLElement {
+  component: T
+
+  constructor(type: Type<T>) {
+    super()
+  
+    const { styles } = type['ɵcmp']
+    const style: any = new CSSStyleSheet()
+    style.replace(styles.join('\n'))
+
+    const host: any = this.attachShadow({ mode: 'open' })
+    host.adoptedStyleSheets = [ style ]
+
+    this.component = ɵrenderComponent(type, { host })
   }
 
 }

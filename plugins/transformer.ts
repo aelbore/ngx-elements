@@ -1,4 +1,8 @@
-import * as ts from 'typescript';
+import * as ts from 'typescript'
+import { createCustomElement } from './element'
+import { TSConfigOptions, transpile } from './transpile'
+import { SchemaOptions, createCustomElementDefineAndNgElementImport } from './statements'
+import { createNgProps } from './ng-props'
 
 function getText(identifier: ts.Identifier) {
   return identifier.hasOwnProperty('escapedText')
@@ -6,8 +10,21 @@ function getText(identifier: ts.Identifier) {
     : identifier.text
 }
 
-function getInputs(content: string, fileName: string) {
+function getSchema(content: string, fileName: string) {
   const sourceFile = ts.createSourceFile(fileName, content, ts.ScriptTarget.ESNext)
+
+  const ngxElements = sourceFile.statements.find(statement => {
+    return ts.isImportDeclaration(statement)
+      && getText(statement.moduleSpecifier as ts.Identifier).includes('ngx-elements')
+  })
+
+  const className = sourceFile.statements.find(statement => {
+    return ts.isClassDeclaration(statement)
+  })
+
+  const name = className 
+    ? getText((className as ts.ClassDeclaration).name)
+    : ''
 
   const statement = sourceFile.statements.find(statement => {
     return ts.isExpressionStatement(statement)
@@ -25,10 +42,27 @@ function getInputs(content: string, fileName: string) {
   .find(property => getText(property.name as ts.Identifier)
         .includes('inputs')) as ts.PropertyAssignment)
 
-  return property 
+ const selectors = (args.properties
+  .find(property => getText(property.name as ts.Identifier)
+        .includes('selectors')) as ts.PropertyAssignment)
+
+  const selector = selectors 
+    ? getText(((selectors.initializer as ts.ArrayLiteralExpression) 
+        .elements[0] as ts.ArrayLiteralExpression)
+        .elements[0] as ts.Identifier)
+    : ''
+
+  const inputs = property 
     ? (property.initializer as ts.ObjectLiteralExpression)
         .properties.map(property => getText(property.name as ts.Identifier))
     : []
+  
+  return {
+    hasNgxElementsImport: ngxElements ? true: false,
+    inputs,
+    selector,
+    name
+  }
 }
 
 function updateImportDeclaration(node: ts.ImportDeclaration) {
@@ -38,7 +72,7 @@ function updateImportDeclaration(node: ts.ImportDeclaration) {
   namedBindings.elements = ts.createNodeArray([
     ...elements,
     ts.createImportSpecifier(
-      ts.createIdentifier('ɵdetectChanges'), 
+      void 0, 
       ts.createIdentifier('ɵdetectChanges'),
     )
   ])
@@ -57,7 +91,8 @@ function updateImportDeclaration(node: ts.ImportDeclaration) {
   )  
 }
 
-function transformer(inputs: string[]) {
+function transformer(options: SchemaOptions) {
+  const { inputs } = options
   return (context: ts.TransformationContext) => { 
     const visitor = (node: ts.Node) => { 
       if (inputs.length > 0 && ts.isImportDeclaration(node) 
@@ -66,57 +101,10 @@ function transformer(inputs: string[]) {
         return updateImportDeclaration(node)
 
       if (inputs.length > 0 && ts.isClassDeclaration(node)) {
-        const props = inputs.map(text => {
-          const getProp = ts.createGetAccessor(null, 
-            undefined, 
-            ts.createIdentifier(text), 
-            [],
-            undefined,
-            ts.createBlock([
-              ts.createReturn(
-                ts.createPropertyAccess(ts.createThis(), ts.createIdentifier(`_${text}`))
-              )
-            ], 
-            true)
-          )
-
-          const setProp = ts.createSetAccessor(
-            undefined,
-            undefined,
-            ts.createIdentifier(text),
-            [ 
-              ts.createParameter(undefined, 
-                undefined, 
-                undefined, 
-                ts.createIdentifier('value'), 
-                undefined, 
-                undefined, 
-                undefined)
-            ],
-            ts.createBlock([
-              ts.createExpressionStatement(
-                ts.createBinary(
-                  ts.createPropertyAccess(ts.createThis(), ts.createIdentifier(`_${text}`)),
-                  ts.SyntaxKind.EqualsToken,
-                  ts.createIdentifier('value')
-                )
-              ),
-              ts.createExpressionStatement(
-                ts.createCall(
-                  ts.createIdentifier('ɵdetectChanges'),
-                  undefined,
-                  [ ts.createThis() ]
-                )
-              )
-            ])
-          )
-
-          return [ getProp, setProp ]
-        })
-
         node.members = ts.createNodeArray([ 
-          ...props.reduce((acc, val) => acc.concat(val), []), 
-          ...node.members
+          ...createNgProps(inputs).reduce((acc, val) => acc.concat(val), []), 
+          ...node.members,
+          createCustomElement(getText(node.name), inputs)
         ])
       }
       return ts.visitEachChild(node, (child) => visitor(child), context)
@@ -125,37 +113,18 @@ function transformer(inputs: string[]) {
   }
 }
 
-function transpile(code: string, tsOptions?: TSConfigOptions) {
-  const { outputText, sourceMapText } = ts.transpileModule(code, {
-    compilerOptions: { 
-      module: ts.ModuleKind.ESNext, 
-      target: ts.ScriptTarget.ES2018,
-      skipLibCheck: true,
-      skipDefaultLibCheck: true,
-      strictNullChecks: false,
-      sourceMap: true,
-      ...(tsOptions?.compilerOptions || {})
-    },
-    transformers: {
-      ...(tsOptions?.transformers || {})
-    }
-  })
-  return { code: outputText, map: sourceMapText }
-}
-
-export interface TSConfigOptions {
-  compilerOptions?: ts.CompilerOptions
-  transformers?: ts.CustomTransformers
-}
-
 export function ngxTransform(options?: TSConfigOptions) {
   return {
     name: 'ngx-transform',
     transform(code: string, id: string) {
       if (!id.includes('node_modules')) {
+        const { selector, inputs, name } = getSchema(code, id)
         return transpile(code, {
           transformers: {
-            before: [ transformer(getInputs(code, id)) ]
+            before: [ 
+              transformer({ inputs }),
+              createCustomElementDefineAndNgElementImport({ selector, name })
+            ]
           }
         })
       }

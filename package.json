@@ -5,7 +5,7 @@
   "description": "Wrap and register your Angular Ivy Component as custom element",
   "scripts": {
     "ngcc": "ngcc",
-    "test": "ts-node --project ./tools/tsconfig.json index.ts",
+    "test": "ts-node --project ./tools/tsconfig.json ./tools/build.ts",
     "build:counter": "rollup -c ./examples/counter/rollup.config.js",
     "build:profile": "rollup -c ./examples/profile/rollup.config.js",
     "build:hello:world": "rollup -c ./examples/hello-world/rollup.config.js",

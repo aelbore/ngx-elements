@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation, Input } from '@angular/core'
-import { renderCustomElement } from 'ngx-elements'
 
 @Component({
   selector: 'hello-world',
@@ -15,5 +14,3 @@ export class HelloWorld  {
   }
 
 }
-
-renderCustomElement(HelloWorld)
