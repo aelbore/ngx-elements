@@ -29,23 +29,21 @@
   },
   "homepage": "https://github.com/aelbore/ngx-elements#readme",
   "peerDependencies": {
-    "@angular/core": ">=9.1.11"
+    "@angular/core": ">=10.0.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-optimizer": "0.901.9",
-    "@angular/common": "^9.1.11",
-    "@angular/compiler": "9.1.11",
-    "@angular/compiler-cli": "9.1.11",
+    "@angular-devkit/build-optimizer": "0.1000.0",
+    "@angular/common": "^10.0.0",
+    "@angular/compiler": "10.0.0",
+    "@angular/compiler-cli": "10.0.0",
     "@angular/core": "^9.1.11",
-    "@types/mock-fs": "^4.10.0",
     "aria-build": "^0.4.5",
     "aria-fs": "^0.4.5",
-    "mock-fs": "^4.12.0",
     "rollup-plugin-filesize": "^9.0.1",
     "rollup-plugin-ngc": "^0.1.1",
     "rxjs": "^6.5.5",
     "sirv-cli": "^1.0.1",
     "tslib": "^2.0.0",
-    "typescript": "3.8.3"
+    "typescript": "3.9.5"
   }
 }

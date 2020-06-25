@@ -37,7 +37,7 @@ Usage
   - When you change the value of `<input>` it will trigger the change detection (`detectChanges`) to update the `<h1>` element
   - by default it will trigger the change dectection when any of the properties changed
     ```typescript
-    import { Component, ViewEncapsulation, Input, Output, EventEmitter } from "@angular/core";
+    import { Component, ViewEncapsulation, Input } from "@angular/core";
     import { renderCustomElement } from 'ngx-elements'
 
     @Component({
