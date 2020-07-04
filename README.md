@@ -31,6 +31,18 @@ API
 * `renderCustomElement` - wrap and register your component into custom element (web components)
 * `renderNgComponent` - wrap your component to automatically have change detection
 
+Features
+-----
+* [Constructable Stylesheets](https://developers.google.com/web/updates/2019/02/constructable-stylesheets)
+* AutoChangeDetectChanges
+* Register Multiple Components, Directives, and Pipes
+  ```typescript
+  renderCustomElement(HelloWorldComponent, {
+   directives: [ NgForOf, MyTabItemComponent, MyTabComponent ],
+   pipes: [ AsyncPipe ]
+  }) 
+  ```
+
 Usage
 -----
 * Create `hello-world.ts`
@@ -44,10 +56,15 @@ Usage
       selector: "hello-world",
       template: `
         <h1>Hello {{ name }}</h1>
-        <input [value]="name" (input)="updateName($event.target.value)" />
+        <input 
+          [value]="name" 
+          (input)="updateName($event.target.value)" 
+         />
       `,
       styles: [`
-        h1 { color: var(--h1-color, blue) }
+        h1 { 
+         color: var(--h1-color, blue) 
+        }
       `],
       encapsulation: ViewEncapsulation.ShadowDom
     })
