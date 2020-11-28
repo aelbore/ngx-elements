@@ -9,7 +9,7 @@
     "build:counter": "rollup -c ./examples/counter/rollup.config.js",
     "build:profile": "rollup -c ./examples/profile/rollup.config.js",
     "build:hello:world": "rollup -c ./examples/hello-world/rollup.config.js",
-    "build": "aria-build -d",
+    "build": "aria-build -d --swc",
     "serve": "sirv public"
   },
   "repository": {
@@ -29,21 +29,22 @@
   },
   "homepage": "https://github.com/aelbore/ngx-elements#readme",
   "peerDependencies": {
-    "@angular/core": ">=10.0.6"
+    "@angular/core": ">=11.0.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-optimizer": "0.1000.4",
-    "@angular/common": "^10.0.6",
-    "@angular/compiler": "^10.0.6",
-    "@angular/compiler-cli": "^10.0.6",
+    "@angular-devkit/build-optimizer": "0.1100.2",
+    "@angular/common": "^11.0.2",
+    "@angular/compiler": "^11.0.2",
+    "@angular/compiler-cli": "^11.0.2",
     "@angular/core": "^10.0.2",
-    "aria-build": "^0.4.5",
-    "aria-fs": "^0.4.5",
+    "@swc/core": "^1.2.39",
+    "aria-build": "^0.6.1",
+    "aria-fs": "^0.6.1",
     "rollup-plugin-filesize": "^9.0.2",
     "rollup-plugin-ngc": "^0.1.1",
-    "rxjs": "^6.6.0",
-    "sirv-cli": "^1.0.4",
-    "tslib": "^2.0.0",
-    "typescript": "3.9.7"
+    "rxjs": "^6.6.3",
+    "sirv-cli": "^1.0.8",
+    "tslib": "^2.0.3",
+    "typescript": "4.0.5"
   }
 }
