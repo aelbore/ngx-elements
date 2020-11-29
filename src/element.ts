@@ -25,7 +25,13 @@ export class NgxElement<T> extends HTMLElement  {
   attributeChangedCallback(name: string, oldValue: any, newValue: any) {
     if (this.schema.attrs.includes(name)) {
       this[name] = newValue
-    }      
+    }
+  }
+
+  disconnectedCallback() {
+    if (this.component['ngOnDestroy']) {
+      this.component['ngOnDestroy'].bind(this.component)();
+    }
   }
 
 }

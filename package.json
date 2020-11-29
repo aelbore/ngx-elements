@@ -36,7 +36,7 @@
     "@angular/common": "^11.0.2",
     "@angular/compiler": "^11.0.2",
     "@angular/compiler-cli": "^11.0.2",
-    "@angular/core": "^10.0.2",
+    "@angular/core": "^11.0.2",
     "@swc/core": "^1.2.39",
     "aria-build": "^0.6.1",
     "aria-fs": "^0.6.1",
