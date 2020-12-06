@@ -1,13 +1,25 @@
 import { NgxElement } from './element'
 
 export function initProps<T>(target: NgxElement<T>) {
+  const propsFirstChange = {};
   target.schema.attrs.forEach(key => {
     Object.defineProperty(target, key, {
       get() { 
         return target.component[key] 
       },
       set(value) {
-        target.component[key] = value
+        const oldValue =  target.component[key];
+        target.component[key] = value;
+        if (target.component['ngOnChanges']) {
+          target.component['ngOnChanges'].bind(target.component)({
+            [key]: {
+              previousValue: oldValue,
+              currentValue: value,
+              first: !propsFirstChange[key]
+            }
+          });
+        }
+        propsFirstChange[key] = true;
       }
     })
   })
