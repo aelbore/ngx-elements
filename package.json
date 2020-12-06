@@ -1,6 +1,6 @@
 {
   "name": "ngx-elements",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "ngx-elements.js",
   "description": "Wrap and register your Angular Ivy Component as custom element",
   "scripts": {
@@ -29,21 +29,21 @@
   },
   "homepage": "https://github.com/aelbore/ngx-elements#readme",
   "peerDependencies": {
-    "@angular/core": ">=11.0.2"
+    "@angular/core": ">=11.0.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-optimizer": "0.1100.2",
-    "@angular/common": "^11.0.2",
-    "@angular/compiler": "^11.0.2",
-    "@angular/compiler-cli": "^11.0.2",
-    "@angular/core": "^11.0.2",
-    "@swc/core": "^1.2.39",
+    "@angular-devkit/build-optimizer": "0.1100.3",
+    "@angular/common": "^11.0.3",
+    "@angular/compiler": "^11.0.3",
+    "@angular/compiler-cli": "^11.0.3",
+    "@angular/core": "^11.0.3",
+    "@swc/core": "^1.2.40",
     "aria-build": "^0.6.1",
     "aria-fs": "^0.6.1",
-    "rollup-plugin-filesize": "^9.0.2",
+    "rollup-plugin-filesize": "^9.1.0",
     "rollup-plugin-ngc": "^0.1.1",
     "rxjs": "^6.6.3",
-    "sirv-cli": "^1.0.8",
+    "sirv-cli": "^1.0.9",
     "tslib": "^2.0.3",
     "typescript": "4.0.5"
   }

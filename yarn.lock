@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@angular-devkit/build-optimizer@0.1100.2":
-  version "0.1100.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-optimizer/-/build-optimizer-0.1100.2.tgz#93dea833aed64d265cfdfebb6580e10cf909630b"
-  integrity sha512-2ZdEeAs0a53g9LDkP5H2mCEPLyk7yd9P7eTepNYvIOz3xJ6W6dB2CqotPMfnHgd4o12cbzCOWrPBxbfo/VnMig==
+"@angular-devkit/build-optimizer@0.1100.3":
+  version "0.1100.3"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-optimizer/-/build-optimizer-0.1100.3.tgz#4010c5439cca57f61badfcd98b898c131bc259c0"
+  integrity sha512-ACvi4W8iDqWJOqHZA7LLI1lldbjrouANxOb1wxgFyr6krKypU6kDXOF2ZWNdrsgDvW0zwJPKeDNFzYyvqQpe/w==
   dependencies:
     loader-utils "2.0.0"
     source-map "0.7.3"
@@ -13,17 +13,17 @@
     typescript "4.0.5"
     webpack-sources "2.0.1"
 
-"@angular/common@^11.0.2":
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/common/-/common-11.0.2.tgz#7558b940a1110a9c6c65103b1ae8e18f2c8e939c"
-  integrity sha512-DGJuSBDt+bF77AzJNrLzeaFGSdwQ3OjgP9UUv1eKvaxp9D+lDam8suIJMuBwTsJII/yrDndY75ENPNTEqhmB2A==
+"@angular/common@^11.0.3":
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-11.0.3.tgz#9af42f9cea34caac971396e7cb9c71b8609e87fe"
+  integrity sha512-g5j6pwN6GOcqIDMV87/ZELm/VlWBvMj2vewIBr0a9KSA/pdAe6rvWR9kfnK9G6GFLv6ST3mq8HWe7NGyF1jpTw==
   dependencies:
     tslib "^2.0.0"
 
-"@angular/compiler-cli@^11.0.2":
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-11.0.2.tgz#961df7f08dc98a6ea202e6aa22dc81ff29c9719d"
-  integrity sha512-I39zNcf6q0NN4PKCbY6Lm4WP69ujLrAew56X5yvlECW9CJlidV0qi1S/DGgAWhXTDOt8XA/KP1hD1pgJtMHjJQ==
+"@angular/compiler-cli@^11.0.3":
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-11.0.3.tgz#3330730e195206d1d01fee01b4c40508cf75de3f"
+  integrity sha512-i4AOShdsFcEecnu5Ulq5pRrtJBmF3F6KQTysSenzZ+Wdtne8Dk5Vx0kEIwtEFqdQwzzTshTJL5L0FCSE3mgOBw==
   dependencies:
     "@babel/core" "^7.8.6"
     "@babel/types" "^7.8.6"
@@ -41,17 +41,17 @@
     tslib "^2.0.0"
     yargs "^16.1.1"
 
-"@angular/compiler@^11.0.2":
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-11.0.2.tgz#892cd38b3afa6ba63149d0bfd9265401a3d88d0c"
-  integrity sha512-deDT5+Lcph4nNhh6sZd0mBS5OkJL3HPbX5upDMI28Wuayt18Pn0UNotWY77/KV6wwIAInmlx9N06PoH3pq3hqg==
+"@angular/compiler@^11.0.3":
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-11.0.3.tgz#1bf9d1d58acb12f02c16d97155de9063246a3c23"
+  integrity sha512-OjfG4TzCzqNyHO4NmQNM7kdaWlbGrfXyB2i2Kd30PS9Z8s9cuhBBZS23P8NEEYNy1PjhI26cmiozrdMZl0hTUw==
   dependencies:
     tslib "^2.0.0"
 
-"@angular/core@^10.0.2":
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-10.0.2.tgz#d2d2c2dd4a9e80dcccc63c274f13ab7397ee5a3b"
-  integrity sha512-r4M1D2NOdkmmFyvYLHRYSIBKTGNXQarZHDZcm5oEq2eTsRVe2u9MYIeOpHKeVQCQK7XKQVB13IZQP3XpUvljFg==
+"@angular/core@^11.0.3":
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-11.0.3.tgz#3c85d6bb9e899f35a35f4a435f8c37bc6529160a"
+  integrity sha512-bxo5euE7+Q2ThowkVRwwvKyF5vQEyo9V14JM3GW8k2THbk7LfNctyNkTeuvkTBWfLF17Nd7b5+BdNttNKNlCuQ==
   dependencies:
     tslib "^2.0.0"
 
@@ -374,31 +374,31 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@swc/core-darwin@^1.2.39":
-  version "1.2.39"
-  resolved "https://registry.yarnpkg.com/@swc/core-darwin/-/core-darwin-1.2.39.tgz#a3add854b77a08bacca7c65ea01403422eb8afeb"
-  integrity sha512-JRZc161lvKML6KfbOkzaRCQnRLTXq4cJ5LnvI6jpdBZL+R5u4IL/RqSkQKV5/2+zEzmgA4ooLH6NLE0Bo19IzA==
+"@swc/core-darwin@^1.2.40":
+  version "1.2.40"
+  resolved "https://registry.yarnpkg.com/@swc/core-darwin/-/core-darwin-1.2.40.tgz#4acb1379f3df626e5550fb12b0795682a25aa177"
+  integrity sha512-G2WnozxzDh91rGMkX4+7OK2508TOZKkpc3e1FwbbXjvw3W4setYZjID2PQba/aFMoqBjCN/GGa18Nc/yTC+bEg==
 
-"@swc/core-linux@^1.2.39":
-  version "1.2.39"
-  resolved "https://registry.yarnpkg.com/@swc/core-linux/-/core-linux-1.2.39.tgz#4f1ecee3ea52267488bcd758c7f0185bae2c17a7"
-  integrity sha512-ZRZ78Ou8gWs2sPl4Ummh7lD479l3KNQVt9pXELD2c/o1O/WkgFLE8Vv9TUZeqANLMWrlMPzQXcbevWkx6Wqg4g==
+"@swc/core-linux@^1.2.40":
+  version "1.2.40"
+  resolved "https://registry.yarnpkg.com/@swc/core-linux/-/core-linux-1.2.40.tgz#57f0d21fce82b0bf6379c1b57a71d0df36ba80e4"
+  integrity sha512-Ou12St4fr4YOj/kqZiJUh9rsw8BzcvQrX2GbuLw4d0Cs8sL4hTxiG/1j/1XShYV8nSQQGNmp9lVoAGkDi0lE5g==
 
-"@swc/core-win32@^1.2.39":
-  version "1.2.39"
-  resolved "https://registry.yarnpkg.com/@swc/core-win32/-/core-win32-1.2.39.tgz#278a726e9c9cd95d573b870f508520f5812fc489"
-  integrity sha512-iu5gu1aaoIyvkAW7dV3LPJJQlmWniHVtHe59mSLKFglQ14n34sOIwb/I3TDZ0SXSgMfBZaTlw2WqCox/gGUBsw==
+"@swc/core-win32@^1.2.40":
+  version "1.2.40"
+  resolved "https://registry.yarnpkg.com/@swc/core-win32/-/core-win32-1.2.40.tgz#bea0f9b883d6ccc84504426f21a3aa6eb9608941"
+  integrity sha512-ywgfxPVc0ISF3nqrLNdnE3qWIvxAiNU7psgTW9eTgbcQWojsAvzouQftnQ6eFzXyhwmAXOw2FEbFz/xoljyh5Q==
 
-"@swc/core@^1.2.39":
-  version "1.2.39"
-  resolved "https://registry.yarnpkg.com/@swc/core/-/core-1.2.39.tgz#b8d2821311de3939027e1292289cf62b742dc4bc"
-  integrity sha512-BohrjkWI+BrPDAwTxfvFomnK7cDi/4G3GLof+eIgnHxUg9cZnDesTVZg6put9UWXs5STkiwGWPDcBp3rdyqExw==
+"@swc/core@^1.2.40":
+  version "1.2.40"
+  resolved "https://registry.yarnpkg.com/@swc/core/-/core-1.2.40.tgz#b9362e7c882a14f3c83b5535b11381abfa0cae4e"
+  integrity sha512-u2/pTMEdxQTv1oOZ17yr9aI6Fnt2UR90X48n28/tjy2b8bH1VmUaB707MMMWySgMnQe2Y98IzYzUDTgOP4D1Ew==
   dependencies:
     "@node-rs/helper" "^0.4.0"
   optionalDependencies:
-    "@swc/core-darwin" "^1.2.39"
-    "@swc/core-linux" "^1.2.39"
-    "@swc/core-win32" "^1.2.39"
+    "@swc/core-darwin" "^1.2.40"
+    "@swc/core-linux" "^1.2.40"
+    "@swc/core-win32" "^1.2.40"
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -2094,10 +2094,10 @@ rollup-plugin-dts@^1.4.14:
   optionalDependencies:
     "@babel/code-frame" "^7.10.4"
 
-rollup-plugin-filesize@^9.0.2:
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-filesize/-/rollup-plugin-filesize-9.0.2.tgz#1470bb93d40dd0c2a5381cae58b8b7106f13d185"
-  integrity sha512-UB+pMETOAxo79aINL+Lt7NmUJa6x6vJjtlmBco9NhSHhpnYaKdGGSx1QuuUuo5LlBXhQxrUURYJbF/B95Vt6Hg==
+rollup-plugin-filesize@^9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-filesize/-/rollup-plugin-filesize-9.1.0.tgz#e6032a2975d1c0c8f2c30ecaa73a12bf39406461"
+  integrity sha512-3umx+e2AzYH4lJaBtyeWk2kC7JafzZhy5AJwj2amudWWgqIFpI/QH7s2+9LWBwIvjK5ty6K6eM3i6dw7qF4GrQ==
   dependencies:
     "@babel/runtime" "^7.10.3"
     boxen "^4.2.0"
@@ -2106,7 +2106,7 @@ rollup-plugin-filesize@^9.0.2:
     filesize "^6.1.0"
     gzip-size "^5.1.1"
     pacote "^11.1.10"
-    terser "^4.8.0"
+    terser "^5.5.1"
 
 rollup-plugin-minify-html-literals@^1.2.5:
   version "1.2.5"
@@ -2218,10 +2218,10 @@ signal-exit@^3.0.0:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
-sirv-cli@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/sirv-cli/-/sirv-cli-1.0.8.tgz#150c3f62694203a86cf5d71ec60e6ff4c34064a9"
-  integrity sha512-bJI+kkzQvMKfAOfgLzv09kWsdymLm39LgKmGjacB19GHIAQLCvXXg8e8HzcofTjDZlA8zVv4dQjU9SWkNzkJhw==
+sirv-cli@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/sirv-cli/-/sirv-cli-1.0.9.tgz#4ce9068f8ed4baf6532bbc5bd6645d407803062a"
+  integrity sha512-BOoJzQF0dADkpfoAEacv7Ev3URSHMZ/zk1oRFCyFlHiBHHAE99zr0lBapPhTzCEst66IgVeWaYtpL4N12uuTlw==
   dependencies:
     console-clear "^1.1.0"
     get-port "^3.2.0"
@@ -2229,13 +2229,13 @@ sirv-cli@^1.0.8:
     local-access "^1.0.1"
     sade "^1.6.0"
     semiver "^1.0.0"
-    sirv "^1.0.7"
+    sirv "^1.0.9"
     tinydate "^1.0.0"
 
-sirv@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/sirv/-/sirv-1.0.7.tgz#ad8ca1f84430777a59162592626c2b8e9b9f1384"
-  integrity sha512-QMT2OTD3CTr8de9VByPmvSEeyt6k8/Cxg0J2kQJ5HNhIWfhFg9ypcIWWzez9rPWnGj+WtJ7AZD/MdT/vdilV/A==
+sirv@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/sirv/-/sirv-1.0.9.tgz#6d4d09de0c0458534a47e8cd32fa3152733f6b8a"
+  integrity sha512-ISwUxLRiB89/+9IeHkm0YUk+8NoFtcoxc8/nSnP2FIDR7UG2fsDSPH/KO2Fx/iw0b/T+2yhnFRbC59Yy5MFVvA==
   dependencies:
     "@polka/url" "^1.0.0-next.9"
     mime "^2.3.1"
@@ -2268,7 +2268,7 @@ source-list-map@^2.0.1:
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
   integrity sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==
 
-source-map-support@^0.5.17, source-map-support@~0.5.12, source-map-support@~0.5.19:
+source-map-support@^0.5.17, source-map-support@~0.5.19:
   version "0.5.19"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"
   integrity sha512-Wonm7zOCIJzBGQdB+thsPar0kYuCIzYvxZwlBa87yi/Mdjv7Tip2cyVbLj5o0cFPN4EVkuTwb3GDDyUx2DGnGw==
@@ -2286,7 +2286,7 @@ source-map@^0.5.0:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
-source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
+source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
@@ -2432,16 +2432,7 @@ term-size@^2.1.0:
   resolved "https://registry.yarnpkg.com/term-size/-/term-size-2.2.0.tgz#1f16adedfe9bdc18800e1776821734086fcc6753"
   integrity sha512-a6sumDlzyHVJWb8+YofY4TW112G6p2FCPEAFk+59gIYHv3XHRhm9ltVQ9kli4hNWeQBwSpe8cRN25x0ROunMOw==
 
-terser@^4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-4.8.0.tgz#63056343d7c70bb29f3af665865a46fe03a0df17"
-  integrity sha512-EAPipTNeWsb/3wLPeup1tVPaXfIaU68xMnVdPafIL1TV05OhASArYyIfFvnvJCNrR2NIOvDVNNTFRa+Re2MWyw==
-  dependencies:
-    commander "^2.20.0"
-    source-map "~0.6.1"
-    source-map-support "~0.5.12"
-
-terser@^5.0.0:
+terser@^5.0.0, terser@^5.5.1:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/terser/-/terser-5.5.1.tgz#540caa25139d6f496fdea056e414284886fb2289"
   integrity sha512-6VGWZNVP2KTUcltUQJ25TtNjx/XgdDsBDKGt8nN0MpydU36LmbPPcMBd2kmtZNNGVVDLg44k7GKeHHj+4zPIBQ==
