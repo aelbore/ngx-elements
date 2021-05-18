@@ -29,22 +29,23 @@
   },
   "homepage": "https://github.com/aelbore/ngx-elements#readme",
   "peerDependencies": {
-    "@angular/core": ">=11.0.3"
+    "@angular/core": ">=12.0.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-optimizer": "0.1100.3",
-    "@angular/common": "^11.0.3",
-    "@angular/compiler": "^11.0.3",
-    "@angular/compiler-cli": "^11.0.3",
-    "@angular/core": "^11.0.3",
-    "@swc/core": "^1.2.40",
-    "aria-build": "^0.6.1",
-    "aria-fs": "^0.6.1",
-    "rollup-plugin-filesize": "^9.1.0",
-    "rollup-plugin-ngc": "^0.1.1",
-    "rxjs": "^6.6.3",
-    "sirv-cli": "^1.0.9",
-    "tslib": "^2.0.3",
-    "typescript": "4.0.5"
+    "@angular-devkit/build-optimizer": "0.1200.0",
+    "@angular/common": "^12.0.0",
+    "@angular/compiler": "^12.0.0",
+    "@angular/compiler-cli": "^12.0.0",
+    "@angular/core": "^12.0.0",
+    "@swc/core": "^1.2.57",
+    "aria-build": "^0.7.3",
+    "aria-fs": "^0.7.3",
+    "rollup-plugin-filesize": "^9.1.1",
+    "rollup-plugin-ngc": "^0.1.2",
+    "rxjs": "^7.0.1",
+    "sirv-cli": "^1.0.11",
+    "tslib": "^2.2.0",
+    "typescript": "4.2.4",
+    "webpack": "^5.37.0"
   }
 }
